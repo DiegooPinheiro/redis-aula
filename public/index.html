@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desempenho com Cache Redis | Atividade Prática</title>
+    <meta name="description" content="Demonstração prática de otimização de aplicação web com cache Redis.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Redis Image Cache ⚡</h1>
+            <p>Demonstração prática de redução de latência no carregamento de grandes volumes (Simulação de BLOBs do BD)</p>
+        </header>
+
+        <main>
+            <div class="controls-card">
+                <div class="input-group">
+                    <label for="imageId">ID da Imagem:</label>
+                    <input type="number" id="imageId" value="1" min="1">
+                </div>
+                
+                <button id="loadBtn" class="primary-btn">
+                    <span class="btn-text">Carregar Imagem do Servidor</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </div>
+
+            <div class="results-viewer">
+                <div class="image-placeholder" id="imagePlaceholder">
+                    <p>Nenhuma imagem carregada ainda. Clique no botão acima!</p>
+                </div>
+                
+                <div class="image-display hidden" id="imageDisplay">
+                    <img id="resultImage" src="" alt="Imagem Carregada do Servidor" />
+                </div>
+                
+                <div class="metrics-panel hidden" id="metricsPanel">
+                    <div class="metric-card source" id="sourceCard">
+                        <span class="label">Origem dos Dados</span>
+                        <span class="value" id="sourceValue">Database</span>
+                    </div>
+                    <div class="metric-card time">
+                        <span class="label">Tempo de Resposta</span>
+                        <span class="value" id="timeValue">0ms</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history-panel">
+                <h3>Histórico de Requisições</h3>
+                <ul id="historyList"></ul>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
